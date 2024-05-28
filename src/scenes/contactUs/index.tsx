@@ -66,71 +66,68 @@ const ContactUs = ({setSelectedPage}: Props) => {
                 <form
                     target="_blank"
                     onSubmit={onSubmit}
+                    action="https://formsubmit.co/e8a5bdfa807605332f809e5656e27c6e"
                     method="POST"
-                    action="https://formsubmit.co/ea5ef2066640f69fc931bf8fabd6a209"
-                >
-                    <input 
-                        className= {inputStyles}
+                    >
+                    <input
+                        className={inputStyles}
                         type="text"
                         placeholder="NAME"
                         {...register("name", {
-                            required: true,
-                            maxLength: 100,
+                        required: true,
+                        maxLength: 100,
                         })}
                     />
-
-                    {/* Check if error */}
                     {errors.name && (
                         <p className="mt-1 text-primary-500">
-                            {errors.name.type === "required" && "This feild is required"}
-                            {errors.name.type === "maxLength" && "Max Length is 100"}
+                        {errors.name.type === "required" && "This field is required."}
+                        {errors.name.type === "maxLength" &&
+                            "Max length is 100 char."}
                         </p>
                     )}
 
-                    <input 
-                        className= {inputStyles}
+                    <input
+                        className={inputStyles}
                         type="text"
                         placeholder="EMAIL"
                         {...register("email", {
-                            required: true,
-                            maxLength: 100,
-                            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        required: true,
+                        pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                         })}
                     />
-
-                    {/* Check if error */}
                     {errors.email && (
                         <p className="mt-1 text-primary-500">
-                            {errors.email.type === "required" && "This feild is required"}
-                            {errors.email.type === "pattern" && "invalid email address"}
+                        {errors.email.type === "required" &&
+                            "This field is required."}
+                        {errors.email.type === "pattern" && "Invalid email address."}
                         </p>
                     )}
 
-                    <textarea 
-                        className= {inputStyles}
+                    <textarea
+                        className={inputStyles}
+                        placeholder="MESSAGE"
                         rows={4}
                         cols={50}
-                        placeholder="MESSAGE"
                         {...register("message", {
-                            required: true,
-                            maxLength: 2000,
+                        required: true,
+                        maxLength: 2000,
                         })}
                     />
-
-                    {/* Check if error */}
                     {errors.message && (
                         <p className="mt-1 text-primary-500">
-                            {errors.message.type === "required" && "This feild is required"}
-                            {errors.message.type === "maxLength" && "Max Length is 2000"}
+                        {errors.message.type === "required" &&
+                            "This field is required."}
+                        {errors.message.type === "maxLength" &&
+                            "Max length is 2000 char."}
                         </p>
                     )}
 
-                <button
-                    type="submit"
-                    className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transistion durartion-500 hover:text-white"
-                >
-                    SUBMIT
-                </button>
+                    <button
+                        type="submit"
+                        className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white"
+                    >
+                        SUBMIT
+                    </button>
                 </form>
             </motion.div>
             {/* Image */}
